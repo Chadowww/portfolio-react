@@ -1,8 +1,8 @@
 import * as PropTypes from "prop-types";
 import background from '../images/bg-home.png';
-import {MainHome} from "./MainHome";
-import {RightSideBar} from "./RightSideBar";
-import {LeftSideBar} from "./LeftSideBar";
+import {MainHome} from "./molecules/MainHome";
+import {RightSideBar} from "./molecules/RightSideBar";
+import {LeftSideBar} from "./molecules/LeftSideBar";
 
 function Home(props) {
     const ClassHome = ' ' + props.className || '';
