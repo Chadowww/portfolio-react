@@ -14,7 +14,7 @@ export function RightSideBar() {
     return (
         <div className="w-2/12 h-full bg-yellow flex flex-col justify-between items-end">
             <div className={"m-4"}>
-                <a href="/src/component/Contact" className={contactClass} style={contactStyle}>contact me</a>
+                <a href="/Contact" className={contactClass} style={contactStyle}>contact me</a>
             </div>
             <div className={scollClass} style={scrollStyle}>
                 <h3 className={"uppercase"}>scroll</h3>

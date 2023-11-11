@@ -1,21 +1,27 @@
 import React from 'react';
 import enter from '../../images/enter.svg';
 export function LeftSideBar() {
-    let enterClass = "font-bold text-center font-[DeathStar] text-shadow mb-12 ml-12 w-min";
+    let enterClass = "font-bold text-center font-[DeathStar] text-shadow mb-12 ml-12 w-min animate-pulse";
     let enterStyle = {
         color: "transparent",
         WebkitTextStroke: "1px #CEB7FF",
         scale: "1.5",
     };
 
-    let socialIcon = " my-4 hover:animate-pulse";
+    let socialIcon = " my-4 hover:animate-pulse hover:scale-110 transform transition-all duration-500 ease-in-out";
+
 
     // eslint-disable-next-line no-restricted-globals
     addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
-            window.location.href = "/skill";
-        }
-    });
+            if (window.location.pathname === "/") {
+                window.location.href = "/skill"
+            } else {
+                console.log(e.key)
+                window.location.href = "/"
+            }
+        }}
+    );
     return (
         <div className="w-2/12 h-full flex flex-col justify-end">
             <div className={"flex flex-col m-12"}>
