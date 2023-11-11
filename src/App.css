@@ -7,12 +7,14 @@
   font-family: 'DeathStar';
   src: local('DeathStar'), url(./font/DeathStar.otf) format('opentype');
 }
+
 .border-glow{
   -webkit-box-shadow:0 0 3px 3px #CEB7FF;
   -moz-box-shadow: 0 0 3px 3px #CEB7FF;
   box-shadow: 0 0 3px 3px #CEB7FF;
   border: #CEB7FF solid 1px;
 }
+
 .text-shadow{
   text-shadow: #CEB7FF 0 0 60px;
 }
