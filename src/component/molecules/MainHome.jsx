@@ -1,5 +1,5 @@
-import earth from "../images/earth.svg";
-import {ExpandebaleBtn} from "./atoms/ExpandebaleBtn";
+import earth from "../../images/earth.svg";
+import {ExpandebaleBtn} from "../atoms/ExpandebaleBtn";
 
 export function MainHome() {
 
