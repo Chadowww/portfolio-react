@@ -2,8 +2,8 @@ import earth from "../images/earth.svg";
 import {ExpandebaleBtn} from "./atoms/ExpandebaleBtn";
 
 export function MainHome() {
-    // Title
-    let ClassTitle = 'text-5xl font-bold text-center font-[DeathStar] text-shadow';
+
+    let ClassTitle = 'text-5xl font-bold text-center font-[DeathStar] text-shadow my-4 animate-pulse';
     let StyleTitle = {
         color: 'transparent',
         WebkitTextStroke: '1px #CEB7FF',
@@ -12,6 +12,7 @@ export function MainHome() {
     let EarthContainer = {
         backgroundImage: `url(${earth})`,
         backgroundPosition: 'top',
+        backgroundSize: 'cover',
     };
 
     return (
