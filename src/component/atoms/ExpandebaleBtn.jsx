@@ -22,7 +22,6 @@ export function ExpandebaleBtn() {
     };
 
     const StyleSpitch = {
-        // display: isOpen ? "inline" : "none",
         height: isOpen ? "200px" : "0",
         width: isOpen ? "750px" : "0",
         fontFamily: "DeathStar",
@@ -37,25 +36,25 @@ export function ExpandebaleBtn() {
         transition: isOpen ? "width 1s, height 1s" : "width 1s , height 1s",
         // width: isOpen ? "750px" : "auto",
     };
+
     return (
         <div
             className={"w-fit h-fit p-8 relative cursor-pointer justify-center items-center"}
             style={containerExpandebale}
             onClick={handleClick}
         >
-            <div className={"absolute top-[0] left-[0] col-start-1 col-end-12"}>
+            <div className={"absolute top-[0] left-[0] col-start-1 col-end-12 vector-pulse"}>
                 <img src={vector1} alt="vector1" className={""} />
             </div>
-            <div className={"flex justify-center items-center"} >
+            <div className={"flex justify-center items-center "} >
                 <h2 className={ClassTitle} style={StyleTitle}>
                     CLICK <br /> TO OPEN
                 </h2>
                 <span className={"overflow-hidden text-center p-6 spitch"} style={StyleSpitch}>
-                    Mon objectif est de transformer vos idees en realite numerique. Je suis axe sur la qualite du code,
-                    la securite et l'efficacite, et je suis capable de gerer tous les aspects de la conception de votre code.
+                    "My goal is to turn your ideas into digital reality. I focus on code quality, security, and efficiency, and I am capable of managing all aspects of your code design."
                 </span>
             </div>
-            <div className={"absolute bottom-[0] right-[0] col-start-1 col-end-12 justify-end"}>
+            <div className={"absolute bottom-[0] right-[0] col-start-1 col-end-12 justify-end vector-pulse"}>
                 <img src={vector2} alt="vector2" className={""} />
             </div>
         </div>
