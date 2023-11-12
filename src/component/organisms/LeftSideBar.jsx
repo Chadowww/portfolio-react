@@ -8,8 +8,7 @@ export function LeftSideBar() {
         scale: "1.5",
     };
 
-    let socialIcon = " my-4 hover:animate-pulse hover:scale-110 transform transition-all duration-500 ease-in-out";
-
+    let socialIcon = " my-4 hover:scale-110 transform transition-all duration-1000 ease-in-out";
 
     // eslint-disable-next-line no-restricted-globals
     addEventListener("keydown", (e) => {
