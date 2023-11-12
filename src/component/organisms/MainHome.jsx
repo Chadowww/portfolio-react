@@ -3,7 +3,7 @@ import {ExpandebaleBtn} from "../atoms/ExpandebaleBtn";
 
 export function MainHome() {
 
-    let ClassTitle = 'text-5xl font-bold text-center font-[DeathStar] text-shadow my-4';
+    let ClassTitle = 'text-6xl font-bold text-center font-[DeathStar] text-shadow my-4';
     let StyleTitle = {
         color: 'transparent',
         WebkitTextStroke: '1px #CEB7FF',
@@ -25,7 +25,7 @@ export function MainHome() {
                 </div>
                 <div>
                     <h1 className={ClassTitle} style={StyleTitle}>
-                        Bienvenue sur mon portfolio
+                        welcome to my portfolio
                     </h1>
                 </div>
                 <div className="w-full flex justify-between items-center">
