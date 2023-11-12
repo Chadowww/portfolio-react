@@ -6,7 +6,7 @@ export function RightSideBar() {
         color: "transparent",
         WebkitTextStroke: "1px #CEB7FF",
     };
-    let scollClass = "font-bold text-center font-[DeathStar] text-shadow m-12 hover:animate-bounce";
+    let scollClass = "font-bold text-center font-[DeathStar] text-shadow m-12 animate-bounce";
     let scrollStyle = {
         color: "transparent",
         WebkitTextStroke: "1px #CEB7FF",
