@@ -1,12 +1,14 @@
 import React from 'react'
-import {MainSkill} from './molecules/MainSkill'
-import {LeftSideBar} from "./molecules/LeftSideBar";
-import {RightSideBar} from "./molecules/RightSideBar";
-import background from '../images/bg-skill.png'
+import {MainSkill} from '../organisms/MainSkill'
+import {LeftSideBar} from "../organisms/LeftSideBar";
+import {RightSideBar} from "../organisms/RightSideBar";
+import background from '../../images/bg-skill.png'
+import {motion} from "framer-motion";
+
 export function Skill() {
     let OverlayClass = "h-screen w-full flex justify-between";
     let OverlayStyle = {
-        background: 'rgba(47, 47, 56, 0.7)',
+        background: 'rgba(47, 47, 56, 0.6)',
     };
     let ClassSkill = "h-screen w-full";
     let StyleSkill = {
@@ -15,13 +17,31 @@ export function Skill() {
         backgroundRepeat: 'no-repeat',
     };
 
+    const pageVariants = {
+        initial: { opacity: 0},
+        animate: { opacity: 1 },
+        exit: { opacity: 0 },
+    };
+
+    const pageTransition = {
+        duration: 4,
+    };
+
     return (
-        <div className={ClassSkill} style={StyleSkill}>
-            <div className={OverlayClass} style={OverlayStyle}>
-                <LeftSideBar/>
-                <MainSkill/>
-                <RightSideBar/>
+        <motion.div
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageVariants}
+            transition={pageTransition}
+        >
+            <div className={ClassSkill} style={StyleSkill}>
+                <div className={OverlayClass} style={OverlayStyle}>
+                    <LeftSideBar/>
+                    <MainSkill/>
+                    <RightSideBar/>
+                </div>
             </div>
-        </div>
+            </motion.div>
     )
 }
