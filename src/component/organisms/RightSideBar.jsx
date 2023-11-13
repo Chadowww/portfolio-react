@@ -1,7 +1,7 @@
 import React from "react";
 import scrollSvg from "../../images/scroll.svg";
 export function RightSideBar() {
-    let contactClass = "text-5xl font-bold text-center font-[DeathStar] text-shadow animate-pulse";
+    let contactClass = "text-4xl font-bold text-center font-[DeathStar] text-shadow animate-pulse";
     let contactStyle = {
         color: "transparent",
         WebkitTextStroke: "1px #CEB7FF",
