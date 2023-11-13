@@ -4,9 +4,11 @@ import {RightSideBar} from "../organisms/RightSideBar";
 import {LeftSideBar} from "../organisms/LeftSideBar";
 import background from '../../images/bg-home.png';
 import {motion} from "framer-motion";
+import {Particle} from "../templates/Particles";
+import React from "react";
 
-function Home(props) {
-    const ClassHome = ' ' + props.className || '';
+function Home() {
+    const ClassHome = ' relative';
     const StyleHome = {
         backgroundImage: `url(${background})`,
         backgroundSize: 'cover',
@@ -20,7 +22,7 @@ function Home(props) {
     };
 
     const pageTransition = {
-        duration: 4,
+        duration: 10,
     };
 
     return(
@@ -32,7 +34,8 @@ function Home(props) {
             transition={pageTransition}
         >
             <div className={ClassHome} style={StyleHome}>
-                <div className={"h-screen w-full flex "} style={{background: 'rgba(47, 47, 56, 0.4)',}}>
+                <Particle />
+                <div className={"h-screen w-full flex relative"} style={{background: 'rgba(47, 47, 56, 0.4)',}}>
                     <LeftSideBar/>
                     <MainHome/>
                     <RightSideBar/>
