@@ -33,8 +33,7 @@ export function ExpandebaleBtn() {
         transform: isOpen ? "scale(1)" : "scale(0)",
     };
     let containerExpandebale = {
-        transition: isOpen ? "width 1s, height 1s" : "width 1s , height 1s",
-        // width: isOpen ? "750px" : "auto",
+        transition: isOpen ? "width 2s, height 2s" : "width 2s , height 2s",
     };
 
     return (
