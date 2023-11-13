@@ -24,7 +24,7 @@ export function Skill() {
     };
 
     const pageTransition = {
-        duration: 4,
+        duration: 10,
     };
 
     return (
