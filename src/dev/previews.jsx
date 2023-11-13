@@ -5,6 +5,7 @@ import Home from "../component/pages/home";
 import {ExpandebaleBtn} from "../component/atoms/ExpandebaleBtn";
 import {Card} from "../component/atoms/Card";
 import {LeftSideBar} from "../component/organisms/LeftSideBar";
+import LoadingPage from "../component/pages/LoadingPage";
 
 const ComponentPreviews = () => {
     return (
@@ -20,6 +21,9 @@ const ComponentPreviews = () => {
             </ComponentPreview>
             <ComponentPreview path="/LeftSideBar">
                 <LeftSideBar/>
+            </ComponentPreview>
+            <ComponentPreview path="/LoadingPage">
+                <LoadingPage/>
             </ComponentPreview>
         </Previews>
     )
