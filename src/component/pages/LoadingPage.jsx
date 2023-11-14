@@ -1,4 +1,5 @@
 import {motion} from "framer-motion";
+import * as PropTypes from "prop-types";
 import earthAlone from "../../images/earthAlone.svg";
 import React from "react";
 
@@ -29,4 +30,8 @@ export default function LoadingPage() {
             </div>
         </motion.div>
     )
+}
+LoadingPage.prototype = {
+    pageVariants: PropTypes.object,
+    pageTransition: PropTypes.object
 }

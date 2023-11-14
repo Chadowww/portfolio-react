@@ -1,4 +1,5 @@
 import React from 'react';
+import * as PropTypes from "prop-types";
 import enter from '../../images/enter.svg';
 export function LeftSideBar() {
     let enterClass = "font-bold text-center font-[DeathStar] text-shadow mb-12 ml-12 w-min animate-pulse";
@@ -48,4 +49,9 @@ export function LeftSideBar() {
             </div>
         </div>
     );
+}
+LeftSideBar.prototype = {
+    enterClass: PropTypes.string,
+    enterStyle: PropTypes.object,
+    socialIcon: PropTypes.string,
 }

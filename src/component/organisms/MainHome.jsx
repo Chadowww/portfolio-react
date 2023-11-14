@@ -1,4 +1,5 @@
 import earth from "../../images/earth.svg";
+import * as PropTypes from "prop-types";
 import {ExpandebaleBtn} from "../atoms/ExpandebaleBtn";
 
 export function MainHome() {
@@ -33,11 +34,17 @@ export function MainHome() {
                     <h2 className="text-[#CEB7FF] font-[DeathStar] whitespace-nowrap px-2">AS-Turing</h2>
                 </div>
             </div>
-            <div className={'flex justify-center items-end p-6 w-full min-h-[450px] '} style={EarthContainer}>
+            <div className={'flex relative justify-center items-end  w-full min-h-[450px] '} >
+                <div className={"absolute w-full h-full"} style={EarthContainer}></div>
                 <div className={''}>
                     <ExpandebaleBtn/>
                 </div>
             </div>
         </div>
     )
+}
+MainHome.prototype = {
+    ClassTitle: PropTypes.string,
+    StyleTitle: PropTypes.object,
+    EarthContainer: PropTypes.object,
 }

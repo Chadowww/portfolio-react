@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import * as PropTypes from "prop-types";
 import 'particles.js';
 export function Particle() {
 
@@ -117,4 +118,7 @@ export function Particle() {
             <div id="particles-js" style={particlesStyle}></div>
         </>
     )
+}
+Particle.prototype = {
+    particlesStyle: PropTypes.object
 }

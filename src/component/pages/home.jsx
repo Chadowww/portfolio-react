@@ -2,7 +2,7 @@ import * as PropTypes from "prop-types";
 import {MainHome} from "../organisms/MainHome";
 import {RightSideBar} from "../organisms/RightSideBar";
 import {LeftSideBar} from "../organisms/LeftSideBar";
-import background from '../../images/bg-home.png';
+import background from '../../images/bg-home.svg';
 import {motion} from "framer-motion";
 import {Particle} from "../templates/Particles";
 import React from "react";
@@ -11,8 +11,10 @@ function Home() {
     const ClassHome = ' relative';
     const StyleHome = {
         backgroundImage: `url(${background})`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed"
     }
 
     const pageVariants = {

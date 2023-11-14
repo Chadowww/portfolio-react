@@ -1,4 +1,5 @@
 import React, {useState } from "react";
+import * as PropTypes from "prop-types";
 import vector1 from "../../images/vector/Vector1.svg";
 import vector2 from "../../images/vector/Vector2.svg";
 
@@ -59,3 +60,12 @@ export function ExpandebaleBtn() {
         </div>
     );
 }
+ExpandebaleBtn.prototype = {
+    isOpen: PropTypes.bool,
+    setIsOpen: PropTypes.func,
+    handleClick: PropTypes.func,
+    ClassTitle: PropTypes.string,
+    StyleTitle: PropTypes.object,
+    StyleSpitch: PropTypes.object,
+    containerExpandebale: PropTypes.object,
+};

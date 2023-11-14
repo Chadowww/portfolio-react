@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import * as PropTypes from "prop-types";
 import background from '../../images/bg-contact.svg';
 import {ParticlesContact} from "../templates/ParticlesContact";
 import {motion} from "framer-motion";
@@ -172,4 +173,16 @@ export function Contact() {
             </div>
         </motion.div>
     )
+}
+Contact.prototype = {
+    email: PropTypes.string,
+    subject: PropTypes.string,
+    content: PropTypes.string,
+    setEmail: PropTypes.func,
+    setSubject: PropTypes.func,
+    setContent: PropTypes.func,
+    onSubmitHandler: PropTypes.func,
+    inputChangeHandler: PropTypes.func,
+    onFocusStyle: PropTypes.func,
+    onBlurStyle: PropTypes.func,
 }

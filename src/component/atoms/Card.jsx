@@ -1,4 +1,5 @@
     import React, {useState} from "react";
+    import * as PropTypes from "prop-types";
     import ReactCardFlip from 'react-card-flip';
     import { Progress } from 'flowbite-react';
 
@@ -101,4 +102,8 @@
             </div>
         </ReactCardFlip>
     )
+}
+
+Card.prototype = {
+    skill: PropTypes.object.isRequired,
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import * as PropTypes from "prop-types";
 import scrollSvg from "../../images/scroll.svg";
 export function RightSideBar() {
     let contactClass = "text-4xl font-bold text-center font-[DeathStar] text-shadow animate-pulse";
@@ -23,3 +24,9 @@ export function RightSideBar() {
         </div>
     );
 }
+RightSideBar.prototype = {
+    contactClass: PropTypes.string,
+    contactStyle: PropTypes.object,
+    scollClass: PropTypes.string,
+    scrollStyle: PropTypes.object,
+};

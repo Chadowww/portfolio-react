@@ -1,4 +1,5 @@
 import React from 'react';
+import * as PropTypes from "prop-types";
 import {motion} from "framer-motion";
 import {Card} from "../atoms/Card";
 export function SkillCard() {
@@ -77,4 +78,7 @@ export function SkillCard() {
             </motion.div>
         </motion.div>
     )
+}
+SkillCard.prototype = {
+    skillList: PropTypes.array.isRequired,
 }
