@@ -7,7 +7,7 @@ export function SkillCard() {
         { name: 'PHP', value: 70 },
         { name: 'Symfony', value: 65 },
         { name: 'Mysql', value: 65 },
-        { name: 'Doctrine', value: 70 },
+        { name: 'Laravel', value: 10 },
         { name: 'React', value: 50 },
         { name: 'TailwindCSS', value: 80 },
         { name: 'Bootstrap', value: 80 },
@@ -21,6 +21,7 @@ export function SkillCard() {
         { name: 'CSS', value: 85 },
         { name: 'Vue.JS', value: 10 },
     ];
+
     function shuffleArray(array) {
         let shuffledArray = [...array];
         for (let i = shuffledArray.length - 1; i > 0; i--) {
