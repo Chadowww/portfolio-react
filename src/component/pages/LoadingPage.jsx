@@ -23,7 +23,7 @@ export default function LoadingPage() {
             transition={pageTransition}
         >
             <div className="loader-container">
-                <div className="spinner w-8/12">
+                <div className="spinner w-6/12">
                     <img src={earthAlone} alt=""/>
                 </div>
             </div>

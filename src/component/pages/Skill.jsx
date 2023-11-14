@@ -6,7 +6,7 @@ import background from '../../images/bg-skill.png'
 import {motion} from "framer-motion";
 
 export function Skill() {
-    let OverlayClass = "h-screen w-full flex justify-between";
+    let OverlayClass = "h-screen w-full flex justify-between overflow-y-scroll";
     let OverlayStyle = {
         background: 'rgba(47, 47, 56, 0.6)',
     };
@@ -24,7 +24,7 @@ export function Skill() {
     };
 
     const pageTransition = {
-        duration: 10,
+        duration: 5,
     };
 
     return (

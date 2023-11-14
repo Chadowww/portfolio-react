@@ -22,7 +22,7 @@ function Home() {
     };
 
     const pageTransition = {
-        duration: 10,
+        duration: 5,
     };
 
     return(
