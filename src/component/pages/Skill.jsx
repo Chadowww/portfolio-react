@@ -1,5 +1,4 @@
 import React from 'react'
-import * as PropTypes from "prop-types";
 import {MainSkill} from '../organisms/MainSkill'
 import {LeftSideBar} from "../organisms/LeftSideBar";
 import {RightSideBar} from "../organisms/RightSideBar";
@@ -46,6 +45,3 @@ export function Skill() {
             </motion.div>
     )
 }
-Skill.propTypes = {
-    children: PropTypes.node.isRequired,
-};
