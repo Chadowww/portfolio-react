@@ -3,9 +3,9 @@ import * as PropTypes from "prop-types";
 import background from '../../images/bg-contact.svg';
 import {ParticlesContact} from "../templates/ParticlesContact";
 import {motion} from "framer-motion";
+import {redirect} from "react-router-dom";
 
 export function Contact() {
-
     let mainStyle = {
         backgroundImage: `url(${background})`,
         backgroundRepeat: "no-repeat",
@@ -41,11 +41,6 @@ export function Contact() {
     let labelClass = "text-right mr-4";
     let socialIcon = "my-4 hover:scale-110 transform transition-all duration-1000 ease-in-out";
 
-    const [email, setEmail] = useState('');
-    const [subject, setSubject] = useState('');
-    const [content, setContent] = useState('');
-    interface FormDataType {email:string, subject: string, content: string}
-    const responseBody: FormDataType = {email: "", subject: "", content: "content"}
     const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         responseBody.email = email
@@ -67,6 +62,11 @@ export function Contact() {
     const pageTransition = {
         duration: 5,
     };
+    const [email, setEmail] = useState('');
+    const [subject, setSubject] = useState('');
+    const [content, setContent] = useState('');
+    interface FormDataType {email:string, subject: string, content: string}
+    const responseBody: FormDataType = {email: "", subject: "", content: "content"}
 
     function onFocusStyle(e: React.FocusEvent<HTMLTextAreaElement | HTMLInputElement>) {
         e.target.style.opacity = '1'
@@ -74,6 +74,27 @@ export function Contact() {
 
     function onBlurStyle(e: React.FocusEvent<HTMLTextAreaElement | HTMLInputElement>) {
           e.target.style.opacity = '0.5'
+    }
+
+    async function sendMail(){
+        const response = await fetch('http://localhost:3001/sendmail', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, subject, content }),
+        });
+
+        if (response.ok) {
+            redirect('/');
+        } else {
+            console.error("Error sending test email");
+        }
+    }
+
+    function handleClik(e) {
+        e.preventDefault();
+        sendMail()
     }
 
     return (
@@ -145,7 +166,7 @@ export function Contact() {
                                     className={inputClass}
                                     style={inputStyle}></textarea>
                             </div>
-                            <button type="submit" className={"w-min m-auto text-2xl p-3 rounded hover:bg-[#CEB7FF]"}> submit</button>
+                            <button type="submit" className={"w-min m-auto text-2xl p-3 rounded hover:bg-[#CEB7FF]"} onClick={handleClik}> submit</button>
                         </form>
                     </div>
                     <div className="w-5/12">
@@ -174,7 +195,7 @@ export function Contact() {
         </motion.div>
     )
 }
-Contact.prototype = {
+Contact.propTypes = {
     email: PropTypes.string,
     subject: PropTypes.string,
     content: PropTypes.string,
@@ -185,4 +206,4 @@ Contact.prototype = {
     inputChangeHandler: PropTypes.func,
     onFocusStyle: PropTypes.func,
     onBlurStyle: PropTypes.func,
-}
+};
