@@ -1,6 +1,6 @@
-import earth from "../../images/earth.svg";
 import * as PropTypes from "prop-types";
 import {ExpandebaleBtn} from "../atoms/ExpandebaleBtn";
+import background from "../../images/bg-home.svg";
 
 export function MainHome() {
 
@@ -10,14 +10,16 @@ export function MainHome() {
         WebkitTextStroke: '1px #CEB7FF',
     }
 
-    let EarthContainer = {
-        backgroundImage: `url(${earth})`,
-        backgroundPosition: 'top',
-        backgroundSize: 'cover',
-    };
-
+    const ClassHome = 'w-screen h-screen flex flex-col justify-between items-center overflow-hidden';
+    const StyleHome = {
+        backgroundImage: `url(${background})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed"
+    }
     return (
-        <div className="relative w-8/12 h-full flex flex-col justify-between items-center overflow-hidden">
+        <div className={ClassHome} style={StyleHome}>
             <div></div>
             <div className="w-fit animate-pulse">
                 <div className="w-full flex flex-row-reverse justify-between items-center">
@@ -34,9 +36,8 @@ export function MainHome() {
                     <h2 className="text-[#CEB7FF] font-[DeathStar] whitespace-nowrap px-2">AS-Turing</h2>
                 </div>
             </div>
-            <div className={'flex relative justify-center items-end  w-full min-h-[450px] '} >
-                <div className={"absolute w-full h-full"} style={EarthContainer}></div>
-                <div className={''}>
+            <div className={'relative earth-container-home flex justify-center items-end  w-full min-h-[400px]'}>
+                <div className={'p-6 absolute z-10'}>
                     <ExpandebaleBtn/>
                 </div>
             </div>
