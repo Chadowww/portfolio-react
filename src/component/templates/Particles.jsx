@@ -4,7 +4,7 @@ import 'particles.js';
 export function Particle() {
 
     let particlesStyle = {
-        position: "absolute",
+        position: "fixed",
         width: "100%",
         height: "100vh",
     };
@@ -23,10 +23,7 @@ export function Particle() {
                     "value": "#3887AC"
                 },
                 "shape": {
-                    "polygon": {
-                        "nb_sides": 11
-                    },
-                    "type": "star"
+                    "type": "circle"
                 },
                 "opacity": {
                     "value": 1,
