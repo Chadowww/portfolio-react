@@ -41,13 +41,6 @@ export function Contact() {
     let labelClass = "text-right mr-4";
     let socialIcon = "my-4 hover:scale-110 transform transition-all duration-1000 ease-in-out";
 
-    const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        responseBody.email = email
-        responseBody.subject = subject
-        responseBody.content = content
-        console.log(JSON.stringify(responseBody))
-    }
     const inputChangeHandler = (setState: React.Dispatch<React.SetStateAction<string>>, event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setState(event.target.value);
         console.log(email, subject, content)
@@ -65,8 +58,6 @@ export function Contact() {
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
     const [content, setContent] = useState('');
-    interface FormDataType {email:string, subject: string, content: string}
-    const responseBody: FormDataType = {email: "", subject: "", content: "content"}
 
     function onFocusStyle(e: React.FocusEvent<HTMLTextAreaElement | HTMLInputElement>) {
         e.target.style.opacity = '1'
@@ -86,13 +77,13 @@ export function Contact() {
         });
 
         if (response.ok) {
-            redirect('/');
+            window.location.href = '/';
         } else {
-            console.error("Error sending test email");
+            console.error("Error sending email");
         }
     }
 
-    function handleClik(e) {
+    function handleClick(e) {
         e.preventDefault();
         sendMail()
     }
@@ -127,7 +118,7 @@ export function Contact() {
                         </div>
                     </div>
                     <div className="w-5/12">
-                        <form onSubmit={onSubmitHandler} method={"post"} className="w-full flex flex-col justify-around">
+                        <form method={"post"} className="w-full flex flex-col justify-around">
                             <div className="w-full flex my-4">
                                 <label htmlFor="email" style={labelStyle} className={labelClass}>Email: </label>
                                 <input type="text"
@@ -166,7 +157,7 @@ export function Contact() {
                                     className={inputClass}
                                     style={inputStyle}></textarea>
                             </div>
-                            <button type="submit" className={"w-min m-auto text-2xl p-3 rounded hover:bg-[#CEB7FF]"} onClick={handleClik}> submit</button>
+                            <button type="submit" className={"w-min m-auto text-2xl p-3 rounded hover:bg-[#CEB7FF]"} onClick={handleClick}> submit</button>
                         </form>
                     </div>
                     <div className="w-5/12">
