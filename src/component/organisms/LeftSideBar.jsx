@@ -23,7 +23,7 @@ export function LeftSideBar() {
         }}
     );
     return (
-        <div className="w-2/12 h-full flex flex-col justify-end">
+        <div className="fixed z-10 h-full flex flex-col justify-end">
             <div className={"flex flex-col m-12"}>
                 <a href="https://www.linkedin.com/in/alexandresale/" className={socialIcon} target="_blank" rel="noopener noreferrer">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="80" height="80" viewBox="0,0,256,256">
