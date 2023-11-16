@@ -16,7 +16,7 @@ export function MainSkill() {
     };
 
     return (
-        <div className="flex flex-col justify-around items-center w-8/12">
+        <div className="flex flex-col justify-around items-center w-full">
             <div className="w-fit  animate-pulse">
                 <div className="w-full flex flex-row-reverse justify-between items-center">
                     <div className="w-full h-4 border-glow"></div>
@@ -33,7 +33,7 @@ export function MainSkill() {
             <h2 className="uppercase underline" style={StyleTitleSkill}>
                 here is a list of my skills
             </h2>
-           <div className="w-full flex justify-center ">
+           <div className="w-10/12 flex justify-center ">
                 <SkillCard/>
            </div>
         </div>
