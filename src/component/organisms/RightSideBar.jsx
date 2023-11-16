@@ -13,7 +13,7 @@ export function RightSideBar() {
         WebkitTextStroke: "1px #CEB7FF",
     };
     return (
-        <div className="w-2/12 h-full bg-yellow flex flex-col justify-between items-end">
+        <div className="fixed  top-0 right-0  z-10 h-full bg-yellow flex flex-col justify-between items-end">
             <div className={"m-4"}>
                 <a href="/Contact" className={contactClass} style={contactStyle}>contact me</a>
             </div>
