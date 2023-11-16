@@ -69,3 +69,28 @@ body{
     transform: rotate(360deg);
   }
 }
+.earth-container-home::after{
+    content: '';
+    margin: auto;
+    position: absolute;
+    width: 100vh;
+    height: 100vh;
+    top: 0;
+    background-image: url(./images/earth.svg);
+    background-size: cover;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+}
+.earth-container-project::after{
+    content: '';
+    margin: auto;
+    position: absolute;
+    width: 100vh;
+    height: 100vh;
+    top: 0;
+    background-image: url(./images/earth.svg);
+    background-size: cover;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transform: rotate(90deg);
+}
