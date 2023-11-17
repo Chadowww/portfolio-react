@@ -3,7 +3,7 @@ import {ExpandebaleBtn} from "../atoms/ExpandebaleBtn";
 import bgproject from '../../images/bg-project.svg';
 
 export function MainProject() {
-    let ClassProject = 'w-screen h-screen flex flex-col justify-between items-center';
+    let ClassProject = 'w-screen h-screen flex flex-col justify-between items-center absolute top-0 left-0 z-0';
     let StyleProject = {
         backgroundColor: '#2D0056',
         backgroundImage: `url(${bgproject})`,
