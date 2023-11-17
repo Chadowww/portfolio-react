@@ -1,7 +1,17 @@
-import React from "react";
+import {useEffect, useState} from "react";
 import * as PropTypes from "prop-types";
 import scrollSvg from "../../images/scroll.svg";
 export function RightSideBar() {
+
+    const[isShow, setIsShow] = useState(true);
+
+    useEffect(() => {
+        if (window.location.pathname === "/skill") {
+            setIsShow(false);
+            console.log("isShown false");
+        }
+    }, []);
+
     let contactClass = "text-4xl font-bold text-center font-[DeathStar] text-shadow animate-pulse";
     let contactStyle = {
         color: "transparent",
@@ -11,6 +21,7 @@ export function RightSideBar() {
     let scrollStyle = {
         color: "transparent",
         WebkitTextStroke: "1px #CEB7FF",
+        opacity: isShow ? 1 : 0,
     };
     return (
         <div className="fixed  top-0 right-0  z-10 h-full bg-yellow flex flex-col justify-between items-end">
