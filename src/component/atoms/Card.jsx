@@ -26,30 +26,39 @@
         {
             name: 'JobItBetter',
             link: 'https://github.com/Chadowww/JobItBetter',
-            techno: ['HTML', 'CSS', 'PHP','Java Script', 'Symfony', 'Twig' ,'React' , 'Doctrine', 'Twig', 'Bootstrap', 'Mysql', 'Symfony UX', 'Webpack']
+            techno: ['HTML', 'CSS', 'PHP','Java Script', 'Symfony', 'Twig' ,'React' , 'Doctrine', 'Twig', 'Bootstrap', 'Mysql', 'Symfony UX', 'Webpack'],
+            message: 'Projet démarré comme un projet de fin de formation, il a été repris par la suite pour être amélioré et terminé. Il s\'agit d\'une plateforme de mise en relation entre des entreprises et des demandeurs d\'emploi. Le projet est en cours de développement.',
         },
         {
             name: 'Project Certification',
             link: 'https://github.com/Chadowww/Porject_Certification',
-            techno: ['HTML', 'CSS', 'PHP','Java Script', 'Symfony', 'Doctrine', 'Twig', 'TailwindCSS', 'PhpUnit', 'Mysql', 'Symfony UX', 'Webpack']
+            techno: ['HTML', 'CSS', 'PHP','Java Script', 'Symfony', 'Doctrine', 'Twig', 'TailwindCSS', 'PhpUnit', 'Mysql', 'Symfony UX', 'Webpack'],
+            message: 'Projet démarré dans le but de passer la certification RNCP. Il s\'agit d\'une plateforme de libraire en ligne. Le projet n\'est pas arrivé à sont therme.',
         },
         {
             name: 'ApiChado',
             link: 'https://github.com/Chadowww/ApiChado',
-            techno: ['PHP', 'Symfony', 'Doctrine', 'PhpUnit', 'Mysql', 'API Rest']
+            techno: ['PHP', 'Symfony', 'Doctrine', 'PhpUnit', 'Mysql', 'API Rest'],
+            message: 'Refonte en cours du projet JobItBetter le but étant de travailler comme des projets réel fonctionnant avec un projet front et un projet back et une API pour la communication.',
         },
         {
             name: 'Portfolio-react',
             link: 'https://github.com/Chadowww/portfolio-react',
-            techno: ['HTML', 'CSS', 'React', 'TailwindCSS', 'Java Script'] },
+            techno: ['HTML', 'CSS', 'React', 'TailwindCSS', 'Java Script'],
+            message: 'Projet de portfolio réalisé en React actuellement en développement.',
+        },
         {
             name: 'EarthWindAndWire',
             link: 'https://github.com/WildCodeSchool/2023-02-PHP-Bordeaux-P2-EarthWindAndWire',
-            techno: ['HTML', 'CSS', 'PHP' , 'Java Script', 'Bootstrap', 'Mysql'] },
+            techno: ['HTML', 'CSS', 'PHP' , 'Java Script', 'Bootstrap', 'Mysql'],
+            message: 'Premier projet en POO sans framework php, il s\'agit d\'un reseau social.',
+        },
         {
             name: 'DHM',
             link: 'https://github.com/Chadowww/DHM',
-            techno: ['HTML', 'CSS', 'PHP' , 'Laravel', 'Vue.JS', 'TailwindCSS', 'Webpack'] },
+            techno: ['HTML', 'CSS', 'PHP' , 'Laravel', 'Vue.JS', 'TailwindCSS', 'Webpack'],
+            message: 'Projet de site vitrine pour un client, il s\'agit d\'un site de maintenant et de vente informatique.',
+        },
     ];
 
     const [isFlipped, setIsFlipped] = useState(false);
