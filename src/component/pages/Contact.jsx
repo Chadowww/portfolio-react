@@ -3,7 +3,6 @@ import * as PropTypes from "prop-types";
 import background from '../../images/bg-contact.svg';
 import {ParticlesContact} from "../templates/ParticlesContact";
 import {motion} from "framer-motion";
-import {redirect} from "react-router-dom";
 
 export function Contact() {
     let mainStyle = {
@@ -53,7 +52,7 @@ export function Contact() {
     };
 
     const pageTransition = {
-        duration: 5,
+        duration: 3,
     };
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
