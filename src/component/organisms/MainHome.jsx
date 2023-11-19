@@ -2,8 +2,9 @@ import * as PropTypes from "prop-types";
 import {ExpandebaleBtn} from "../atoms/ExpandebaleBtn";
 import background from "../../images/bg-home.svg";
 import React, {useRef} from "react";
+import {Particle} from "../templates/Particles";
 
-export function MainHome(props) {
+export function MainHome() {
 
     const main = useRef();
 
@@ -33,7 +34,7 @@ export function MainHome(props) {
 
             if (delta === 1 && currentOpacity >= 0.01) {
                 currentOpacity -= 0.02;
-                if (currentOpacity <= 0.01) {
+                if (currentOpacity <= 0.3) {
                     container.style.display = 'none';
                 }
             }
@@ -49,6 +50,36 @@ export function MainHome(props) {
             console.log(container.style.opacity);
         }
     })
+    let startY;
+    let startX;
+    window.addEventListener('touchstart', (e) => {
+        startY = e.touches[0].clientY;
+        startX = e.touches[0].clientX;
+    });
+
+    window.addEventListener('touchmove', (e) => {
+        const container = main.current;
+        if (container) {
+            const deltaY = e.touches[0].clientY - startY;
+            const currentOpacity = parseFloat(container.style.opacity) || 1;
+
+            if (deltaY < 10 && currentOpacity >= 0.01) {
+                // Swipe vers le bas
+                container.style.opacity = (currentOpacity - 0.02).toString();
+                if (currentOpacity <= 0.03) {
+                    container.style.display = 'none';
+                }
+            }
+
+            if (deltaY > -10 && currentOpacity <= 1) {
+                // Swipe vers le haut
+                container.style.display = 'flex';
+                container.style.opacity = (currentOpacity + 0.02).toString();
+            }
+            console.log(startY + ' StartY ');
+            console.log(startX + ' StartX ')
+        }
+    });
 
     return (
         <div className={ClassHome} style={StyleHome} ref={main}>
@@ -68,11 +99,13 @@ export function MainHome(props) {
                     <h2 className="text-[#CEB7FF] font-[DeathStar] whitespace-nowrap px-2">AS-Turing</h2>
                 </div>
             </div>
-            <div className={'relative flex justify-center items-end  w-full min-h-[400px]'}>
-                <div className={'p-6 absolute z-10 scale-50 md:scale-75 lg:transform-none'}>
+            <div className={'relative flex justify-center items-end  w-full'}>
+                <div className={'p-6 absolute z-50 scale-50 md:scale-75 lg:transform-none'}>
                     <ExpandebaleBtn message={message}/>
                 </div>
             </div>
+            <Particle />
+
         </div>
     )
 }
