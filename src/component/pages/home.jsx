@@ -3,11 +3,8 @@ import {MainHome} from "../organisms/MainHome";
 import {MainProject} from "../organisms/MainProject";
 import {RightSideBar} from "../organisms/RightSideBar";
 import {LeftSideBar} from "../organisms/LeftSideBar";
-import {animate, motion, useAnimation} from "framer-motion";
-import {Particle} from "../templates/Particles";
+import {motion} from "framer-motion";
 import React from "react";
-import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
 
 function Home() {
 
@@ -18,7 +15,7 @@ function Home() {
     };
 
     const pageTransition = {
-        duration: 5,
+        duration: 3,
     };
 
     return(
@@ -29,9 +26,8 @@ function Home() {
             variants={pageVariants}
             transition={pageTransition}
         >
-            <Particle />
             <LeftSideBar/>
-            <div className={""} style={{background: 'rgba(47, 47, 56, 0.4)',}}>
+            <div style={{background: 'rgba(47, 47, 56, 0.4)',}}>
                 <MainHome/>
                 <MainProject/>
             </div>
