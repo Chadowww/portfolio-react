@@ -2,14 +2,13 @@ import React from 'react';
 import * as PropTypes from "prop-types";
 import enter from '../../images/enter.svg';
 export function LeftSideBar() {
-    let enterClass = "font-bold text-center font-[DeathStar] text-shadow mb-8 ml-4 md:mb-16 md:ml-16 w-min animate-pulse";
+    let enterClass = "flex flex-col items-center justify-center font-bold text-center font-[DeathStar] text-shadow animate-pulse";
     let enterStyle = {
         color: "transparent",
         WebkitTextStroke: "1px #CEB7FF",
-        scale: "1.5",
     };
 
-    let socialIcon = " my-4 hover:scale-110 transform transition-all duration-1000 ease-in-out";
+    let socialIcon = " my-4 hover:scale-110 transform transition-all duration-1000 ease-in-out flex justify-center items-center";
 
     // eslint-disable-next-line no-restricted-globals
     addEventListener("keydown", (e) => {
@@ -22,9 +21,12 @@ export function LeftSideBar() {
             }
         }}
     );
+
+    let urlToGo = window.location.pathname === "/" ? "/skill" : "/";
+
     return (
-        <div className="fixed z-[11] h-full flex flex-col justify-end">
-            <div className={"flex flex-col scale-50 md:scale-75 lg:transform-none md:m-12"}>
+        <div className="fixed bottom-0 z-[11] p-8 md:h-full flex flex-col justify-end">
+            <div className={"hidden md:flex flex-col md:scale-75 lg:transform-none md:my-12"}>
                 <a href="https://www.linkedin.com/in/alexandresale/" className={socialIcon} target="_blank" rel="noopener noreferrer">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="80" height="80" viewBox="0,0,256,256">
                         <g fill="#ceb7ff"  stroke="none"><g transform="scale(5.12,5.12)"><path d="M41,4h-32c-2.76,0 -5,2.24 -5,5v32c0,2.76 2.24,5 5,5h32c2.76,0 5,-2.24 5,-5v-32c0,-2.76 -2.24,-5 -5,-5zM17,20v19h-6v-19zM11,14.47c0,-1.4 1.2,-2.47 3,-2.47c1.8,0 2.93,1.07 3,2.47c0,1.4 -1.12,2.53 -3,2.53c-1.8,0 -3,-1.13 -3,-2.53zM39,39h-6c0,0 0,-9.26 0,-10c0,-2 -1,-4 -3.5,-4.04h-0.08c-2.42,0 -3.42,2.06 -3.42,4.04c0,0.91 0,10 0,10h-6v-19h6v2.56c0,0 1.93,-2.56 5.81,-2.56c3.97,0 7.19,2.73 7.19,8.26z"></path></g></g>
@@ -42,10 +44,10 @@ export function LeftSideBar() {
                 </a>
             </div>
             <div className={enterClass} style={enterStyle}>
-                <a href="/skill" className={enterClass} style={enterStyle}>
+                <a href={urlToGo} className={enterClass} style={enterStyle}>
                     <h3 className={"hidden md:block"}>press enter</h3>
                     <h3 className={"md:hidden"}>Press me</h3>
-                    <img src={enter} alt="press enter" className={"w-10/12 hidden md:block"}/>
+                    <img src={enter} alt="press enter" className={"hidden md:block "}/>
                 </a>
             </div>
         </div>
