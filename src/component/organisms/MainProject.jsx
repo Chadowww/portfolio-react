@@ -1,7 +1,9 @@
 import * as PropTypes from "prop-types";
 import {ExpandebaleBtn} from "../atoms/ExpandebaleBtn";
 import {Carousel} from "flowbite-react";
-import bgproject from '../../images/bg-project.svg';
+import background from "../../images/bg-project.svg";
+import {Particle} from "../templates/Particles";
+import React from "react";
 
 export function MainProject() {
 
@@ -11,21 +13,21 @@ export function MainProject() {
             name: 'JobItBetter',
             link: 'https://github.com/Chadowww/JobItBetter',
             techno: ['HTML', 'CSS', 'PHP','Java Script', 'Symfony', 'Twig' ,'React' , 'Doctrine', 'Twig', 'Bootstrap', 'Mysql', 'Symfony UX', 'Webpack'],
-            message: 'Projet de fin de formation, il a ete repris par la suite pour etre ameliore. Il s\'agit d\'une plateforme de mise en relation entre entreprises et demandeurs d\'emploi. Le projet est en cours de développement. Projet de fin de formation, il a ete repris par la suite pour etre ameliore. Il s\'agit d\'une plateforme de mise en relation entre entreprises et demandeurs d\'emploi. Le projet est en cours de développement.',
+            message: 'Project de fin de formation, il a ete repris par la suite pour etre ameliore. Il s\'agit d\'une plateforme de mise en relation entre entreprises et demandeurs d\'emploi. Le Projet est en cours de développement. Projet de fin de formation, il a ete repris par la suite pour etre ameliore. Il s\'agit d\'une plateforme de mise en relation entre entreprises et demandeurs d\'emploi. Le Projet est en cours de développement.',
         },
         {
             id: 2,
             name: 'Project Certification',
             link: 'https://github.com/Chadowww/Porject_Certification',
             techno: ['HTML', 'CSS', 'PHP','Java Script', 'Symfony', 'Doctrine', 'Twig', 'TailwindCSS', 'PhpUnit', 'Mysql', 'Symfony UX', 'Webpack'],
-            message: 'Projet developpe dans le but de passer la certification RNCP. Il s\'agit d\'une plateforme de libraire en ligne. Le projet n\'est pas arrive à sont therme.',
+            message: 'Projet developpe dans le but de passer la certification RNCP. Il s\'agit d\'une plateforme de libraire en ligne. Le Projet n\'est pas arrive à sont therme.',
         },
         {
             id: 3,
             name: 'ApiChado',
             link: 'https://github.com/Chadowww/ApiChado',
             techno: ['PHP', 'Symfony', 'Doctrine', 'PhpUnit', 'Mysql', 'API Rest'],
-            message: 'Refonte en cours du projet JobItBetter le but etant de travailler comme des projets réel fonctionnant avec un projet front et un projet back et une API pour la communication.',
+            message: 'Refonte en cours du Projet JobItBetter le but etant de travailler comme des Projets réel fonctionnant avec un Projet front et un Projet back et une API pour la communication.',
         },
         {
             id: 4,
@@ -39,7 +41,7 @@ export function MainProject() {
             name: 'EarthWindAndWire',
             link: 'https://github.com/WildCodeSchool/2023-02-PHP-Bordeaux-P2-EarthWindAndWire',
             techno: ['HTML', 'CSS', 'PHP' , 'Java Script', 'Bootstrap', 'Mysql'],
-            message: 'Premier projet en POO sans framework php, il s\'agit d\'un reseau social.',
+            message: 'Premier Projet en POO sans framework php, il s\'agit d\'un reseau social.',
         },
         {
             id: 6,
@@ -53,14 +55,14 @@ export function MainProject() {
     let ClassProject = 'w-screen h-screen flex flex-col justify-between items-center absolute top-0 left-0 z-0 earth-container-project overflow-hidden';
     let StyleProject = {
         backgroundColor: '#2D0056',
-        backgroundImage: `url(${bgproject})`,
+        backgroundImage: `url(${background})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
     };
 
-    let ClassTitle = 'text-6xl font-bold text-center font-[DeathStar] text-shadow my-4';
-    let StyleTitle = {
+    const ClassTitle = 'text-6xl font-bold text-center font-[DeathStar] text-shadow my-4';
+    const StyleTitle = {
         color: 'transparent',
         WebkitTextStroke: '1px #CEB7FF',
     }
@@ -68,7 +70,7 @@ export function MainProject() {
     return (
         <div className={ClassProject} style={StyleProject}>
             <div></div>
-            <div className="w-fit animate-pulse">
+            <div className="w-fit animate-pulse scale-50 md:scale-75 lg:transform-none">
                 <div className="w-full flex flex-row-reverse justify-between items-center">
                     <div className="w-full h-4 border-glow"></div>
                 </div>
@@ -81,14 +83,14 @@ export function MainProject() {
                     <div className="w-full h-4  border-glow"></div>
                 </div>
             </div>
-            <Carousel indicators={false} slide={false} className={"w-6/12 h-2/5 overflow-hidden"}>
-                {projects.map((project, index) =>{
+            <Carousel indicators={false} slide={false} className={"relative w-full md:w-6/12 h-4/6 md:h-2/5 overflow-hidden"}>
+                {projects.map((project) =>{
                     return(
                         <div className={"h-full w-full"} key={project.id}>
-                            <div className={"w-full flex flex-col justify-end"}>
+                            <div className={"w-full h-full flex flex-col justify-end"}>
                                 <a href={project.link}><h2 className={"text-center text-4xl font-bold"}> Project: {project.name}</h2></a>
-                                <div className={'relative  flex justify-center items-end  w-full min-h-[400px] overflow-hidden'}>
-                                    <div className={'p-6 absolute z-50'}>
+                                <div className={'relative  flex justify-center items-end  w-full min-h-[300px] md:min-h-[400px] overflow-hidden'}>
+                                    <div className={'absolute z-10 bottom-0 p-6 scale-50 md:scale-75 lg:transform-none'}>
                                         <ExpandebaleBtn message={project.message}/>
                                     </div>
                                 </div>
@@ -97,6 +99,7 @@ export function MainProject() {
                     )
                 })}
             </Carousel>
+            <Particle />
         </div>
     )
 }
