@@ -24,7 +24,7 @@ export function ExpandebaleBtn(props) {
 
     const StyleSpitch = {
         height: isOpen ? "200px" : "0",
-        width: isOpen ? "700px" : "0",
+        width: isOpen ? "650px" : "0",
         position: isOpen ? "relative" : "absolute",
         fontFamily: "DeathStar",
         fontSize: "25px",
@@ -41,7 +41,7 @@ export function ExpandebaleBtn(props) {
 
     return (
         <div
-            className={"w-fit h-fit p-8 relative cursor-pointer justify-center items-center"}
+            className={"w-fit h-fit absolute z-20 bottom-2 p-8  cursor-pointer justify-center items-center"}
             style={containerExpandebale}
             onClick={handleClick}
             key={props.id}
@@ -49,7 +49,7 @@ export function ExpandebaleBtn(props) {
             <div className={"absolute top-0 left-0 col-start-1 col-end-12 vector-pulse"}>
                 <img src={vector1} alt="vector1" className={""} />
             </div>
-            <div className={"flex justify-center items-center relative "} >
+            <div className={"flex justify-center items-center"} >
                 <h2 className={ClassTitle} style={StyleTitle}>
                     CLICK <br /> TO OPEN
                 </h2>
