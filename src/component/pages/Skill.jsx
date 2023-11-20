@@ -6,11 +6,11 @@ import background from '../../images/bg-skill.png'
 import {motion} from "framer-motion";
 
 export function Skill() {
-    let OverlayClass = "h-screen w-full flex justify-between overflow-y-scroll";
+    let OverlayClass = "md:h-screen w-full flex justify-between overflow-y-scroll";
     let OverlayStyle = {
         background: 'rgba(47, 47, 56, 0.6)',
     };
-    let ClassSkill = "h-screen w-full";
+    let ClassSkill = "md:h-screen w-full";
     let StyleSkill = {
         backgroundImage: `url(${background})`,
         backgroundSize: 'cover',
