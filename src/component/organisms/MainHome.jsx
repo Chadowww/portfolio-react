@@ -83,9 +83,10 @@ export function MainHome() {
 
     return (
         <div className={ClassHome} style={StyleHome} ref={main}>
-            <div></div>
+            <Particle />
+            <div className="hidden md:block"></div>
             <div className="w-fit animate-pulse scale-50 md:scale-75 lg:transform-none">
-                <div className="w-full flex flex-row-reverse justify-between items-center">
+                <div className="flex flex-row-reverse">
                     <div className="w-full h-4 border-glow"></div>
                     <h2 className="text-[#CEB7FF] font-[DeathStar] whitespace-nowrap px-2">Alexandre Sale</h2>
                 </div>
@@ -94,18 +95,14 @@ export function MainHome() {
                         welcome to my portfolio
                     </h1>
                 </div>
-                <div className="w-full flex justify-between items-center">
+                <div className=" flex">
                     <div className="w-full h-4  border-glow"></div>
                     <h2 className="text-[#CEB7FF] font-[DeathStar] whitespace-nowrap px-2">AS-Turing</h2>
                 </div>
             </div>
-            <div className={'relative flex justify-center items-end  w-full'}>
-                <div className={'p-6 absolute z-50 scale-50 md:scale-75 lg:transform-none'}>
-                    <ExpandebaleBtn message={message}/>
-                </div>
+            <div className={'w-full relative flex justify-center m-6 scale-50 md:scale-75 lg:transform-none'}>
+                <ExpandebaleBtn message={message}/>
             </div>
-            <Particle />
-
         </div>
     )
 }
