@@ -1,10 +1,24 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import * as PropTypes from "prop-types";
 import background from '../../images/bg-contact.svg';
 import {ParticlesContact} from "../templates/ParticlesContact";
 import {motion} from "framer-motion";
 
+function useMediaQuery(query) {
+    const mediaQuery = window.matchMedia(query);
+    const [match, setMatch] = useState(mediaQuery.matches);
+
+    useEffect(() => {
+        const onChange = () => setMatch(mediaQuery.matches);
+        mediaQuery.addEventListener("change", onChange);
+        return () => mediaQuery.removeEventListener("change", onChange);
+    }, [mediaQuery]);
+
+    return match;
+}
 export function Contact() {
+    const isSmallScreen = useMediaQuery('(max-width: 400px)');
+
     let mainStyle = {
         backgroundImage: `url(${background})`,
         backgroundRepeat: "no-repeat",
@@ -20,9 +34,10 @@ export function Contact() {
     }
     let backStyle = {
         fontFamily: "Bebas Neue",
-        fontSize: "41px",
+        fontSize: isSmallScreen ? "20px" : '41px',
         cursor: "pointer",
     };
+
     let inputClass = "";
     let inputStyle = {
         width: 'inherit',
@@ -37,7 +52,7 @@ export function Contact() {
         fontSize: "38px",
         width: '20%',
     };
-    let labelClass = "text-right mr-4";
+    let labelClass = "hidden md:inline text-right md:mr-4";
     let socialIcon = "my-4 hover:scale-110 transform transition-all duration-1000 ease-in-out";
 
     const inputChangeHandler = (setState: React.Dispatch<React.SetStateAction<string>>, event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -54,6 +69,7 @@ export function Contact() {
     const pageTransition = {
         duration: 3,
     };
+
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
     const [content, setContent] = useState('');
@@ -98,11 +114,11 @@ export function Contact() {
             <div className={mainClass} style={mainStyle}>
                 <ParticlesContact/>
                 <div className={"relative h-screen w-full flex flex-col justify-between items-center "}>
-                    <div className="w-full mt-6 ml-16">
+                    <div className="hidden md:block w-full mt-6 ml-16">
                         <a href={"/"} style={backStyle}>&lt; Go back</a>
                     </div>
                     <div>
-                        <div className="w-fit animate-pulse">
+                        <div className="w-fit animate-pulse scale-50 md:scale-75 lg:transform-none">
                             <div className="w-full flex flex-row-reverse justify-between items-center">
                                 <div className="w-full h-4 border-glow"></div>
                             </div>
@@ -116,8 +132,8 @@ export function Contact() {
                             </div>
                         </div>
                     </div>
-                    <div className="w-5/12">
-                        <form method={"post"} className="w-full flex flex-col justify-around">
+                    <div className="w-full md:w-5/12">
+                        <form method={"post"} className="w-full flex flex-col justify-around p-4">
                             <div className="w-full flex my-4">
                                 <label htmlFor="email" style={labelStyle} className={labelClass}>Email: </label>
                                 <input type="text"
@@ -148,7 +164,7 @@ export function Contact() {
                                 <textarea
                                     id={"content"}
                                     name={"content"}
-                                    cols="30" rows="10"
+                                    cols="30" rows={isSmallScreen ? "5" : "10"}
                                     placeholder={"Content"}
                                     onChange={(e)=>inputChangeHandler(setContent, e)}
                                     onFocus={onFocusStyle}
@@ -159,7 +175,7 @@ export function Contact() {
                             <button type="submit" className={"w-min m-auto text-2xl p-3 rounded hover:bg-[#CEB7FF]"} onClick={handleClick}> submit</button>
                         </form>
                     </div>
-                    <div className="w-5/12">
+                    <div className="w-full md:w-5/12 scale-50 md:transform-none ">
                         <div className={"w-full flex justify-around items-center"}>
                             <a href="https://www.linkedin.com/in/alexandresale/" className={socialIcon}>
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="80" height="80" viewBox="0,0,256,256">
