@@ -67,7 +67,7 @@ export function SkillCard() {
                 initial="hidden"
                 animate="visible"
                 variants={list}
-                className="grid grid-cols-4 gap-4 w-8/12">
+                className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full md:w-8/12">
                 {shuffledSkillList.map((skill, index) => {
                     return (
                         <motion.div key={index} variants={item}>
