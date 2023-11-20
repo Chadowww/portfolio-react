@@ -25,7 +25,7 @@ export function LeftSideBar() {
     let urlToGo = window.location.pathname === "/" ? "/skill" : "/";
 
     return (
-        <div className="fixed bottom-0 z-[11] p-8 md:h-full flex flex-col justify-end">
+        <div className="fixed bottom-0 z-[11] p-2 md:p-8 md:h-full flex flex-col justify-end">
             <div className={"hidden md:flex flex-col md:scale-75 lg:transform-none md:my-12"}>
                 <a href="https://www.linkedin.com/in/alexandresale/" className={socialIcon} target="_blank" rel="noopener noreferrer">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="80" height="80" viewBox="0,0,256,256">
