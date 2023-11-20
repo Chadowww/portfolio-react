@@ -23,7 +23,7 @@ export function RightSideBar() {
         opacity: isShow ? 1 : 0,
     };
     return (
-        <div className="fixed top-0 right-0 z-10 md:h-full p-8 flex flex-col justify-between items-end">
+        <div className="fixed top-0 right-0 z-10 md:h-full p-2  md:pr-8 md:pt-8 flex flex-col justify-between items-end">
             <div className={" w-full m-1 text-right md:text-center md:transform-none"}>
                 <a href="/Contact" className={contactClass} style={contactStyle}>contact me</a>
             </div>
