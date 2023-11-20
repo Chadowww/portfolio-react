@@ -45,6 +45,14 @@ const config = {
         ],
     },
     resolve: {
+        alias: {
+            Home: path.resolve(__dirname, 'src/component/pages/home'),
+            Contact: path.resolve(__dirname, 'src/component/pages/Contact'),
+            Skill: path.resolve(__dirname, 'src/component/pages/Skill'),
+            LoadingPage: path.resolve(__dirname, 'src/component/pages/LoadingPage'),
+            Previews: path.resolve(__dirname, 'src/dev/previews'),
+        },
+        extensions: ['.js', '.jsx'],
         fallback: {
             "stream": require.resolve("stream-browserify")
         }
