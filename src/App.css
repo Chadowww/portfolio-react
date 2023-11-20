@@ -81,10 +81,9 @@ body{
     background-size: cover;
     background-position: 0 100%;
     background-repeat: no-repeat;
-    z-index: 12;
+    z-index: -1;
 }
 
 .earth-container-project::after{
     transform: rotate(90deg);
-    z-index: 12;
 }
