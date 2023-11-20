@@ -55,10 +55,10 @@ export function Contact() {
     let labelClass = "hidden md:inline text-right md:mr-4";
     let socialIcon = "my-4 hover:scale-110 transform transition-all duration-1000 ease-in-out";
 
-    const inputChangeHandler = (setState: React.Dispatch<React.SetStateAction<string>>, event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setState(event.target.value);
-        console.log(email, subject, content)
+    const inputChangeHandler = (setState, event) => {
+        setState(prevState => event.target.value);
     }
+
 
     const pageVariants = {
         initial: { opacity: 0},
@@ -74,11 +74,12 @@ export function Contact() {
     const [subject, setSubject] = useState('');
     const [content, setContent] = useState('');
 
-    function onFocusStyle(e: React.FocusEvent<HTMLTextAreaElement | HTMLInputElement>) {
+    function onFocusStyle(e) {
         e.target.style.opacity = '1'
     }
 
-    function onBlurStyle(e: React.FocusEvent<HTMLTextAreaElement | HTMLInputElement>) {
+
+    function onBlurStyle(e) {
           e.target.style.opacity = '0.5'
     }
 
