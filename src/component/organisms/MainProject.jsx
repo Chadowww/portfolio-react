@@ -69,9 +69,9 @@ export function MainProject() {
 
     return (
         <div className={ClassProject} style={StyleProject}>
-            <div></div>
+            <div className=""></div>
             <div className="w-fit animate-pulse scale-50 md:scale-75 lg:transform-none">
-                <div className="w-full flex flex-row-reverse justify-between items-center">
+                <div className="flex flex-row-reverse">
                     <div className="w-full h-4 border-glow"></div>
                 </div>
                 <div>
@@ -79,18 +79,18 @@ export function MainProject() {
                         My projects
                     </h1>
                 </div>
-                <div className="w-full flex justify-between items-center">
+                <div className="flex">
                     <div className="w-full h-4  border-glow"></div>
                 </div>
             </div>
-            <Carousel indicators={false} slide={false} className={"relative w-full md:w-6/12 h-4/6 md:h-2/5 overflow-hidden"}>
+            <Carousel indicators={false} slide={false} className={"relative w-full md:w-7/12 h-4/6 md:h-2/5 overflow-hidden"}>
                 {projects.map((project) =>{
                     return(
                         <div className={"h-full w-full"} key={project.id}>
                             <div className={"w-full h-full flex flex-col justify-end"}>
                                 <a href={project.link}><h2 className={"text-center text-4xl font-bold"}> Project: {project.name}</h2></a>
                                 <div className={'relative  flex justify-center items-end  w-full min-h-[300px] md:min-h-[400px] overflow-hidden'}>
-                                    <div className={'absolute z-10 bottom-0 p-6 scale-50 md:scale-75 lg:transform-none'}>
+                                    <div className={'w-full relative flex justify-center m-6 scale-50 md:scale-75 lg:transform-none'}>
                                         <ExpandebaleBtn message={project.message}/>
                                     </div>
                                 </div>
@@ -99,7 +99,6 @@ export function MainProject() {
                     )
                 })}
             </Carousel>
-            <Particle />
         </div>
     )
 }
