@@ -1,27 +1,29 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import * as PropTypes from "prop-types";
 import {motion} from "framer-motion";
 import {Card} from "../atoms/Card";
 export function SkillCard() {
 
-    const initialSkillList = [
-        { name: 'PHP', value: 70 },
-        { name: 'Symfony', value: 65 },
-        { name: 'Mysql', value: 65 },
-        { name: 'Laravel', value: 10 },
-        { name: 'React', value: 50 },
-        { name: 'TailwindCSS', value: 80 },
-        { name: 'Bootstrap', value: 80 },
-        { name: 'PhpUnit', value: 25 },
-        { name: 'Twig', value: 50 },
-        { name: 'API Rest', value: 50 },
-        { name: 'Java Script', value: 60 },
-        { name: 'Webpack', value: 60 },
-        { name: 'Symfony UX', value: 45 },
-        { name: 'HTML', value: 85 },
-        { name: 'CSS', value: 85 },
-        { name: 'Vue.JS', value: 10 },
-    ];
+    const [skills, setSkills] = useState([]);
+
+    useEffect(() => {
+        const fetchSkills = async () => {
+            try {
+                const response = await fetch('http://localhost:3001/skills');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json();
+                setSkills(data);
+            } catch (error) {
+                console.error('Error fetching skills:', error);
+            }
+        };
+
+        fetchSkills();
+    }, []); // Le tableau vide signifie que useEffect s'exécutera une seule fois après le montage initial
+
 
     function shuffleArray(array) {
         let shuffledArray = [...array];
@@ -31,7 +33,7 @@ export function SkillCard() {
         }
         return shuffledArray;
     }
-    const shuffledSkillList = shuffleArray(initialSkillList);
+    const shuffledSkillList = shuffleArray(skills);
 
     const variants = {
         visible: { opacity: 1 },
