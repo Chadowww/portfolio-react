@@ -1,5 +1,7 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
+const skill = require('../models/skillModel');
+const project = require('../models/projectModel');
 
 const router = express.Router();
 
@@ -29,4 +31,23 @@ router.post('/sendmail', async (req, res) => {
     }
 });
 
+router.get('/skills', async (req, res) => {
+    try {
+        const skills = await skill.getAllSkills();
+        return res.status(200).json(skills);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Error getting skills" });
+    }
+});
+
+router.get('/projects', async (req, res) => {
+    try {
+        const projects = await project.getAllProjects();
+        res.status(200).send(projects);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error getting projects");
+    }
+});
 module.exports = router;
