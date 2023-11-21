@@ -54,7 +54,7 @@
         {
             name: 'ApiChado',
             link: 'https://github.com/Chadowww/ApiChado',
-            techno: ['PHP', 'Symfony', 'Doctrine', 'PhpUnit', 'Mysql', 'API Rest'],
+            techno: ['PHP', 'Symfony', 'PhpUnit', 'Mysql', 'API Rest'],
             message: 'Refonte en cours du projet JobItBetter le but étant de travailler comme des projets réel fonctionnant avec un projet front et un projet back et une API pour la communication.',
         },
         {
@@ -106,7 +106,7 @@
             <div id={props.skill.name + "-front"} className={GridElementClass} style={GridElementStyle} onClick={handleClick}>
                 {props.skill.name}
                 <div className={"px-2"}>
-                    <Progress progress={props.skill.value} />
+                    <Progress progress={props.skill.performance} />
                 </div>
             </div>
             <div className="relative">
