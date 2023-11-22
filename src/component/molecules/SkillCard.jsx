@@ -24,21 +24,11 @@ export function SkillCard() {
         fetchSkills();
     }, []); // Le tableau vide signifie que useEffect s'exécutera une seule fois après le montage initial
 
-
-    function shuffleArray(array) {
-        let shuffledArray = [...array];
-        for (let i = shuffledArray.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
-        }
-        return shuffledArray;
-    }
-    const shuffledSkillList = shuffleArray(skills);
-
     const variants = {
         visible: { opacity: 1 },
         hidden: { opacity: 0 },
     }
+
     const list = {
         visible: {
             opacity: 1,
@@ -54,10 +44,12 @@ export function SkillCard() {
             },
         },
     }
+
     const item = {
         visible: { opacity: 1, x: 0 },
         hidden: { opacity: 0, x: -100 },
     }
+
     return (
         <motion.div
             className={"w-full h-full flex justify-center"}
@@ -70,7 +62,7 @@ export function SkillCard() {
                 animate="visible"
                 variants={list}
                 className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full md:w-8/12">
-                {shuffledSkillList.map((skill, index) => {
+                {skills.map((skill, index) => {
                     return (
                         <motion.div key={index} variants={item}>
                             <Card skill={skill}/>
