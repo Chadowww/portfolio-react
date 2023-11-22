@@ -41,6 +41,16 @@ router.get('/skills', async (req, res) => {
     }
 });
 
+router.get('/skills/projects', async (req, res) => {
+    try {
+        const skills = await skill.getAllSkillsWithProjects();
+        return res.status(200).json(skills);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Error getting skills" });
+    }
+});
+
 router.get('/projects', async (req, res) => {
     try {
         const projects = await project.getAllProjects();
