@@ -2,55 +2,26 @@ import * as PropTypes from "prop-types";
 import {ExpandebaleBtn} from "../atoms/ExpandebaleBtn";
 import {Carousel} from "flowbite-react";
 import background from "../../images/bg-project.svg";
-import {Particle} from "../templates/Particles";
-import React from "react";
+import React, {useEffect} from "react";
 
 export function MainProject() {
+    const [projects:[], setProject] = React.useState([]);
 
-    const projects = [
-        {
-            id: 1,
-            name: 'JobItBetter',
-            link: 'https://github.com/Chadowww/JobItBetter',
-            techno: ['HTML', 'CSS', 'PHP','Java Script', 'Symfony', 'Twig' ,'React' , 'Doctrine', 'Twig', 'Bootstrap', 'Mysql', 'Symfony UX', 'Webpack'],
-            message: 'Project de fin de formation, il a ete repris par la suite pour etre ameliore. Il s\'agit d\'une plateforme de mise en relation entre entreprises et demandeurs d\'emploi. Le Projet est en cours de développement. Projet de fin de formation, il a ete repris par la suite pour etre ameliore. Il s\'agit d\'une plateforme de mise en relation entre entreprises et demandeurs d\'emploi. Le Projet est en cours de développement.',
-        },
-        {
-            id: 2,
-            name: 'Project Certification',
-            link: 'https://github.com/Chadowww/Porject_Certification',
-            techno: ['HTML', 'CSS', 'PHP','Java Script', 'Symfony', 'Doctrine', 'Twig', 'TailwindCSS', 'PhpUnit', 'Mysql', 'Symfony UX', 'Webpack'],
-            message: 'Projet developpe dans le but de passer la certification RNCP. Il s\'agit d\'une plateforme de libraire en ligne. Le Projet n\'est pas arrive à sont therme.',
-        },
-        {
-            id: 3,
-            name: 'ApiChado',
-            link: 'https://github.com/Chadowww/ApiChado',
-            techno: ['PHP', 'Symfony', 'Doctrine', 'PhpUnit', 'Mysql', 'API Rest'],
-            message: 'Refonte en cours du Projet JobItBetter le but etant de travailler comme des Projets réel fonctionnant avec un Projet front et un Projet back et une API pour la communication.',
-        },
-        {
-            id: 4,
-            name: 'Portfolio-react',
-            link: 'https://github.com/Chadowww/portfolio-react',
-            techno: ['HTML', 'CSS', 'React', 'TailwindCSS', 'Java Script'],
-            message: 'Projet de portfolio realise en React actuellement en developpement.',
-        },
-        {
-            id: 5,
-            name: 'EarthWindAndWire',
-            link: 'https://github.com/WildCodeSchool/2023-02-PHP-Bordeaux-P2-EarthWindAndWire',
-            techno: ['HTML', 'CSS', 'PHP' , 'Java Script', 'Bootstrap', 'Mysql'],
-            message: 'Premier Projet en POO sans framework php, il s\'agit d\'un reseau social.',
-        },
-        {
-            id: 6,
-            name: 'DHM',
-            link: 'https://github.com/Chadowww/DHM',
-            techno: ['HTML', 'CSS', 'PHP' , 'Laravel', 'Vue.JS', 'TailwindCSS', 'Webpack'],
-            message: 'Projet de site vitrine pour un client, il s\'agit d\'un site de maintenant et de vente informatique.',
-        },
-    ];
+    useEffect(() => {
+        const fetchProject = async () => {
+          try{
+              const response = await fetch('http://localhost:3001/projects');
+              if (!response.ok) {
+                  throw new Error(response.statusText);
+              }
+              const data = await response.json();
+              setProject(data)
+          } catch (error) {
+              console.log(error);
+          }
+        };
+        fetchProject();
+    }, []);
 
     let ClassProject = 'w-screen h-screen flex flex-col justify-between items-center absolute top-0 left-0 z-0 earth-container-project overflow-hidden';
     let StyleProject = {
@@ -91,7 +62,7 @@ export function MainProject() {
                                 <a href={project.link}><h2 className={"text-center text-4xl font-bold"}> Project: {project.name}</h2></a>
                                 <div className={'relative  flex justify-center items-end  w-full min-h-[300px] md:min-h-[400px] overflow-hidden'}>
                                     <div className={'w-full relative flex justify-center m-6 scale-50 md:scale-75 lg:transform-none'}>
-                                        <ExpandebaleBtn message={project.message}/>
+                                        <ExpandebaleBtn message={project.description}/>
                                     </div>
                                 </div>
                             </div>
