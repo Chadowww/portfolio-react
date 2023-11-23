@@ -19,6 +19,24 @@ const ProjectModel = {
             connection.end()
         }
     },
+    getProjectById: async (id) => {
+        const connection = await mysql.createConnection({
+            host: "127.0.0.1",
+            user: "CHADO",
+            password: "wow",
+            database: "portfolio"
+        })
+        try {
+            const [rows, fields] = await connection.execute('SELECT * FROM projects WHERE id = ?', [id])
+            return rows[0]
+        } catch (error) {
+            console.log(error)
+            throw error
+        } finally {
+            connection.end()
+        }
+    }
+
 }
 
 module.exports = ProjectModel
