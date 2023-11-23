@@ -61,3 +61,13 @@ router.get('/projects', async (req, res) => {
     }
 });
 module.exports = router;
+
+router.get('/projects/:id', async (req, res) => {
+    try {
+        const project = await project.getProjectById(req.params.id);
+        res.status(200).send(project);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error getting project");
+    }
+});
