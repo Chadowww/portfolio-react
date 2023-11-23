@@ -22,7 +22,7 @@ export function SkillCard() {
         };
 
         fetchSkills();
-    }, []); // Le tableau vide signifie que useEffect s'exécutera une seule fois après le montage initial
+    }, []);
 
     const variants = {
         visible: { opacity: 1 },
