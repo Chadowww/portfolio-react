@@ -28,3 +28,5 @@ qodana.yaml
 
 # build
 dist
+#assets
+src/images/projects
