@@ -31,7 +31,13 @@ export function MainHome() {
         const container= main.current;
         if (container) {
             let currentOpacity = parseFloat(container.style.opacity);
-
+            const targetElement = e.target;
+            const excludeElements = document.querySelectorAll('.ExcludeScroll');
+            for (let i = 0; i < excludeElements.length; i++) {
+                if (excludeElements[i].contains(targetElement)) {
+                    return;
+                }
+            }
             if (delta === 1 && currentOpacity >= 0.01) {
                 currentOpacity -= 0.02;
                 if (currentOpacity <= 0.3) {
@@ -60,6 +66,13 @@ export function MainHome() {
     window.addEventListener('touchmove', (e) => {
         const container = main.current;
         if (container) {
+            const targetElement = e.target;
+            const excludeElements = document.querySelectorAll('.ExcludeScroll');
+            for (let i = 0; i < excludeElements.length; i++) {
+                if (excludeElements[i].contains(targetElement)) {
+                    return;
+                }
+            }
             const deltaY = e.touches[0].clientY - startY;
             const currentOpacity = parseFloat(container.style.opacity) || 1;
 
@@ -100,7 +113,7 @@ export function MainHome() {
                     <h2 className="text-[#CEB7FF] font-[DeathStar] whitespace-nowrap px-2">AS-Turing</h2>
                 </div>
             </div>
-            <div className={'w-full relative flex justify-center m-6 scale-50 md:scale-75 lg:transform-none'}>
+            <div className={'ExcludeScroll w-full relative flex justify-center m-6 scale-50 md:scale-75 lg:transform-none'}>
                 <ExpandebaleBtn message={message}/>
             </div>
         </div>
