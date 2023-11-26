@@ -70,7 +70,8 @@ body{
   }
 }
 .earth-container-home::after,
-.earth-container-project::after{
+.earth-container-project::after,
+.earth-container-project-containt::after{
     content: '';
     margin: auto;
     position: absolute;
@@ -86,4 +87,7 @@ body{
 
 .earth-container-project::after{
     transform: rotate(90deg);
+}
+.earth-container-project-containt::after{
+    transform: rotate(180deg);
 }
