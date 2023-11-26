@@ -10,7 +10,7 @@ export function MainProject() {
     useEffect(() => {
         const fetchProject = async () => {
           try{
-              const response = await fetch('http://localhost:3001/projects');
+              const response = await fetch('http://172.20.10.2:3001/projects');
               if (!response.ok) {
                   throw new Error(response.statusText);
               }
@@ -59,9 +59,9 @@ export function MainProject() {
                     return(
                         <div className={"h-full w-full"} key={project.id}>
                             <div className={"w-full h-full flex flex-col justify-end"}>
-                                <a href={project.link}><h2 className={"text-center text-4xl font-bold"}> Project: {project.name}</h2></a>
-                                <div className={'relative  flex justify-center items-end  w-full min-h-[300px] md:min-h-[400px] overflow-hidden'}>
-                                    <div className={'w-full relative flex justify-center m-6 scale-50 md:scale-75 lg:transform-none'}>
+                                <a href={"/project/" + project.id }><h2 className={"text-center text-4xl font-bold"}> Project: {project.name}</h2></a>
+                                <div className={'relative  flex justify-center items-end  w-full min-h-[300px] md:min-h-[360px] overflow-hidden'}>
+                                    <div className={'ExcludeScroll w-full relative flex justify-center m-6 scale-50 md:scale-75 lg:transform-none'}>
                                         <ExpandebaleBtn message={project.description}/>
                                     </div>
                                 </div>
