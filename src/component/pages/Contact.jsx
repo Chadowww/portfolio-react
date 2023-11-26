@@ -84,7 +84,7 @@ export function Contact() {
     }
 
     async function sendMail(){
-        const response = await fetch('http://localhost:3001/sendmail', {
+        const response = await fetch('http://172.20.10.2:3001/sendmail', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
