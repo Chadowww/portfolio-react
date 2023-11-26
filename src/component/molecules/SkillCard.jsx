@@ -9,7 +9,7 @@ export function SkillCard() {
     useEffect(() => {
         const fetchSkills = async () => {
             try {
-                const response = await fetch('http://localhost:3001/skills');
+                const response = await fetch('http://172.20.10.2:3001/skills');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
