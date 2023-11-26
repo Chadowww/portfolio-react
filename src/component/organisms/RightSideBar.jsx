@@ -6,7 +6,7 @@ export function RightSideBar() {
     const[isShow, setIsShow] = useState(true);
 
     useEffect(() => {
-        if (window.location.pathname === "/skill") {
+        if (window.location.pathname === "/skill" ||  window.location.pathname.startsWith("/project/") || window.location.pathname === "/contact") {
             setIsShow(false);
         }
     }, []);
