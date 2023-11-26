@@ -15,6 +15,24 @@ function useMediaQuery(query) {
 
 
 export function CardBack(props) {
+    const [linkList, setLinkList] = useState([]);
+
+    useEffect(() => {
+        const fetchLinkList = async () => {
+            try {
+                const response = await fetch("http://172.20.10.2:3001/skills/projects");
+                if (!response.ok) {
+                    throw new Error("HTTP error " + response.status);
+                }
+                const data = await response.json();
+                setLinkList(data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchLinkList();
+    }, []);
+
     const handleClick = props.handleClick;
 
     const isSmallScreen = useMediaQuery('(max-width: 400px)');
@@ -29,24 +47,6 @@ export function CardBack(props) {
         fontSize: isSmallScreen ? "15px" : isMediumScreen ? "20px" : isLargeScreen ? "20px" : "30px",
         fontFamily: "montserrat",
     };
-
-    const [linkList, setLinkList] = useState([]);
-
-    useEffect(() => {
-        const fetchLinkList = async () => {
-            try {
-                const response = await fetch("http://localhost:3001/skills/projects");
-                if (!response.ok) {
-                    throw new Error("HTTP error " + response.status);
-                }
-                const data = await response.json();
-                setLinkList(data);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        fetchLinkList();
-    }, []);
 
     return (
         <div className="relative" onClick={handleClick}>
