@@ -41,7 +41,7 @@ export function ExpandebaleBtn(props) {
 
     return (
         <div
-            className={"w-fit h-fit absolute z-20 bottom-2 p-8  cursor-pointer justify-center items-center"}
+            className={"w-fit h-fit absolute z-20 bottom-2 p-5  cursor-pointer justify-center items-center"}
             style={containerExpandebale}
             onClick={handleClick}
             key={props.id}
