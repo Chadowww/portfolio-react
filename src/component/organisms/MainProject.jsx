@@ -5,7 +5,7 @@ import background from "../../images/bg-project.svg";
 import React, {useEffect} from "react";
 
 export function MainProject() {
-    const [projects:[], setProject] = React.useState([]);
+    const [projects, setProject] = React.useState([]);
 
     useEffect(() => {
         const fetchProject = async () => {
