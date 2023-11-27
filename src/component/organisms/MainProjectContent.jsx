@@ -2,14 +2,17 @@ import background from "../../images/bg-one-project.svg";
 import {React, useEffect, useState} from "react";
 import {ExpandebaleBtn} from "../atoms/ExpandebaleBtn";
 import EmblaCarousel from "../molecules/Carousel";
+import {useParams} from "react-router-dom";
 
 export function MainProjectContent() {
+
+    const {id} = useParams();
     const [project, setProject] = useState([]);
 
     useEffect(() => {
         const fetchProject = async () => {
             try{
-                const response = await fetch('http://172.20.10.2:3001/project/1');
+                const response = await fetch('http://172.20.10.2:3001/project/' + id);
                 if (!response.ok) {
                     throw new Error('HTTP Error! status: ' + response.status);
                 }
@@ -21,7 +24,7 @@ export function MainProjectContent() {
         }
         fetchProject();
     }, []);
-    console.log(project)
+
     let mainProjectContent = "w-screen h-screen flex flex-col justify-between items-center overflow-hidden absolute top-0 left-0 z-10 earth-container-project-containt";
     let mainProjecContenttStyle = {
         backgroundImage: `url(${background})`,
@@ -67,7 +70,7 @@ export function MainProjectContent() {
                     <h2 className="text-[#CEB7FF] font-[DeathStar] whitespace-nowrap px-2">AS-Turing</h2>
                 </div>
             </div>
-            <EmblaCarousel slides={slides} />
+            <EmblaCarousel slides={slides} id={id} />
             <div className={'w-full relative flex justify-center m-6 scale-50 md:scale-75 lg:transform-none'}>
                 <ExpandebaleBtn message={project.description}/>
             </div>
