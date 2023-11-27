@@ -2,6 +2,7 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const skill = require('../models/skillModel');
 const project = require('../models/projectModel');
+const image = require('../models/imageModel')
 
 const router = express.Router();
 
@@ -66,9 +67,17 @@ router.get('/project/:id', async (req, res) => {
     try {
         const projectContent = await project.getProjectById(req.params.id);
         res.status(200).send(projectContent);
-        console.log('projectContent', projectContent);
     } catch (error) {
         console.error(error);
         res.status(500).send("Error getting project");
     }
 });
+
+router.get('/images/project/:id', async (req, res) =>{
+    try {
+        const imgList = await image.getImageByProjectId(req.params.id);
+        res.status(200).send(imgList);
+    } catch (error){
+        console.log(error)
+    }
+})
