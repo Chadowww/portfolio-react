@@ -4,9 +4,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import "../../style/embla.css";
 
 const PARALLAX_FACTOR = 0.5;
-const imgByIndex = (index) => `https://picsum.photos/id/${index + 1}/800/800`;
 
-const EmblaCarousel = ({ slides }) => {
+const EmblaCarousel = ({ slides, id }) => {
     const [viewportRef, embla] = useEmblaCarousel({
         loop: false,
         dragFree: true
@@ -58,26 +57,57 @@ const EmblaCarousel = ({ slides }) => {
         embla.on("resize", onScroll);
     }, [embla, onSelect, onScroll]);
 
+    const [projectImage, setProjectImage] = useState([]);
+
+    useEffect(() => {
+        const fetchProjectImage = async () => {
+            try{
+                const response = await fetch('http://172.20.10.2:3001/images/project/' + id);
+                if (!response.ok) {
+                    throw new Error('HTTP Error! status: ' + response.status);
+                }
+                const data = await response.json();
+                setProjectImage(data);
+            } catch (e) {
+                console.log(e);
+            }
+        }
+        fetchProjectImage();
+    }, [id]);
+
     return (
         <div className="embla mb-48  rounded-[0.5rem]">
             <div className="embla__viewport rounded-[0.5rem]" ref={viewportRef}>
                 <div className="embla__container rounded-[0.5rem]">
-                    {slides.map((index) => (
-                        <div className="embla__slide py-1" key={index}>
-                            <div className="embla__slide__inner rounded-[0.5rem] border-glow">
-                                <div
-                                    className="embla__slide__parallax rounded-[0.5rem]"
-                                    style={{ transform: `translateX(${parallaxValues[index]}%)` }}
-                                >
-                                    <img
-                                        className="embla__slide__img rounded-[0.5rem]"
-                                        src={imgByIndex(index)}
-                                        alt="A cool cat."
-                                    />
+                    {projectImage && projectImage.map((item, index) => {
+                        const isVideo = item.image.split('.').pop() === 'mov';
+
+                        return(
+                            <div className="embla__slide py-1" key={index}>
+                                <div className="embla__slide__inner rounded-[0.5rem] border-glow">
+                                    <div
+                                        className="embla__slide__parallax rounded-[0.5rem]"
+                                        style={{ transform: `translateX(${parallaxValues[index]}%)` }}
+                                    >
+                                        {isVideo ? (
+                                            <video
+                                                src={item.image}
+                                                className='embla__slide__img rounded-[0.5rem]'
+                                                controls
+                                            />
+                                        ) : (
+                                            <img
+                                                className="embla__slide__img rounded-[0.5rem]"
+                                                src={item.image}
+                                                alt=""
+                                            />
+                                        )
+                                        }
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        )
+                    })}
                 </div>
             </div>
             <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
